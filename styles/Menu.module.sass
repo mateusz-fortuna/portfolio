@@ -1,10 +1,20 @@
 @import '../styles/variables'
 
-.menu__icon_span
+.menu__icon > *
   width: 3rem
   height: 2px
   background-color: $color-font
   margin-bottom: $margin-standard / 4
   display: block
+  transition: all 0.5s
   &:last-child
     margin-bottom: 0
+
+.menu__icon_exit > *
+  &:nth-child(1)
+    transform: translate3d(0,calc($margin-standard / 4 + 2px),0) rotate(45deg)
+  &:nth-child(2)
+    transform: scale(0)
+  &:nth-child(3)
+    transform: translate3d(0,calc( -1 * ($margin-standard / 4 + 2px)),0) rotate(-45deg)
+  

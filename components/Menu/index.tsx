@@ -1,11 +1,14 @@
+import { useState } from "react";
 import styles from "../../styles/Menu.module.sass";
 import Button from "./Button";
 
 const Menu = () => {
-  const logToConsole = () => console.log("the button was clicked!");
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const toggleIsMenuOpened = () => setIsMenuOpened((state) => !state);
+
   return (
     <>
-      <Button onClick={logToConsole} />
+      <Button onClick={toggleIsMenuOpened} hasExitState={isMenuOpened} />
     </>
   );
 };

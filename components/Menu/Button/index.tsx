@@ -1,9 +1,11 @@
-import Button, { Props } from "../../Button";
-import Icon from "../Icon";
+import Button, { ButtonProps } from "../../Button";
+import Icon, { IconProps } from "../Icon";
 
-const MenuButton = ({ onClick }: Props) => (
+type Props = ButtonProps & IconProps;
+
+const MenuButton = ({ onClick, hasExitState }: Props) => (
   <Button onClick={onClick} style={{ marginLeft: "auto" }}>
-    <Icon />
+    <Icon hasExitState={hasExitState} />
   </Button>
 );
 export default MenuButton;
