@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../styles/Menu.module.sass";
+import Background from "./Background";
 import Button from "./Button";
 
 const Menu = () => {
@@ -8,6 +8,7 @@ const Menu = () => {
 
   return (
     <>
+      <Background isMounted={isMenuOpened} />
       <Button onClick={toggleIsMenuOpened} hasExitState={isMenuOpened} />
     </>
   );
