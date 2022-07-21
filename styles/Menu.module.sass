@@ -24,34 +24,43 @@
   
 .menu__button
   margin-left: 0
+  z-index: 1
 
 // ----------BACKGROUND---------- //
 
 .menu__background
   background-color: $color-secondary
-  width: 320vh
-  height: 320vh
-  border-radius: 50%
   display: flex
   position: fixed
-  top: calc($margin-standard + $margin-standard / 4 + 1px)
-  left: calc(-320vh + $margin-standard + 0.5 * 3rem)
-  right: auto
+  left: 0
+  top: 0
+  height: 100%
+  width: 0%
   transition: $transition
-  transform: translate3d(50%, -50%, 0) scale(0)
 
 .menu__background_opened
-  transform: translate3d(50%, -50%, 0) scale(1)
-
+  width: 512px
 
 // ----------MEDIA-QUERIES---------- //
+
+@media screen and (max-width: 1200px)
+  .menu__background_opened
+    width: 50%
 
 @media (orientation: portrait)
   .menu__button
     margin-left: auto
 
   .menu__background
-    width: 210vh
-    height: 210vh
+    border-radius: 50%
+    width: 265vh
+    height: 265vh
     left: auto
     right: $margin-standard + 0.5 * 3rem
+    top: calc($margin-standard + $margin-standard / 4 + 1px)
+    transform: translate3d(50%, -50%, 0) scale(0)
+    transition-timing-function: linear
+
+  .menu__background_opened
+    transform: translate3d(50%, -50%, 0) scale(1)
+  
