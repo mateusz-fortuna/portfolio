@@ -25,21 +25,26 @@ h2
   font-size: 1.25rem
   margin-bottom: $margin-standard
 
-@media screen and (min-width: 1200px)
-  h1
-    font-family: 'Martel', serif
-    font-weight: normal
-    font-size: 3.052rem
-    margin-bottom: $margin-standard
-  h2
-    font-family: 'Poppins', sans-serif
-    font-weight: normal
-    font-size: 1.563rem
-    margin-bottom: $margin-standard
-  html, body
-    padding: 0
-    margin: 0
-    font-family: 'Montserrat Alternates', sans-serif
-    font-weight: normal
-    color: $color-font
-    font-size: 1.25rem
+ol
+  list-style-type: none
+
+li
+  position: relative
+  width: fit-content
+  cursor: pointer
+  &::after
+    position: absolute
+    content: ""
+    width: 0
+    height: 2px
+    background-color: $color-font
+    top: 50%
+    left: -$margin-standard / 4
+    transform: translate3d(0,-50%,0)
+    transition: all .5s ease
+  &:hover
+    &::after
+      width: calc( 100% + $margin-standard / 2 )
+
+button
+  cursor: pointer

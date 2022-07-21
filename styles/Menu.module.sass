@@ -1,5 +1,13 @@
 @import '../styles/variables'
 
+.menu
+  position: fixed
+  display: flex
+  inset: 0
+  z-index: 1
+  align-items: center
+  padding: $margin-standard
+
 // ----------ICON---------- //
 
 .menu__icon > *
@@ -23,8 +31,9 @@
 // ----------BUTTON---------- //
   
 .menu__button
-  margin-left: 0
-  z-index: 1
+  position: absolute
+  align-self: flex-start
+  z-index: 2
 
 // ----------BACKGROUND---------- //
 
@@ -41,6 +50,12 @@
 .menu__background_opened
   width: 512px
 
+// ----------NAVIGATION---------- //
+
+.menu__navigation
+  z-index: 1
+  text-transform: uppercase
+
 // ----------MEDIA-QUERIES---------- //
 
 @media screen and (max-width: 1200px)
@@ -49,7 +64,8 @@
 
 @media (orientation: portrait)
   .menu__button
-    margin-left: auto
+   right: 0
+   margin-right: $margin-standard
 
   .menu__background
     border-radius: 50%

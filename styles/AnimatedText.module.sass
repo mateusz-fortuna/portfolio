@@ -1,0 +1,23 @@
+@import '../styles/variables'
+ 
+.text__wrapper
+  overflow: hidden
+
+.text
+  display: inline-block
+
+.text--animation-enter
+  transform: translate3d(0,$transformValue,0)
+  opacity: 0
+
+.text--animation-enter-active
+  transform: translate3d(0,0,0)
+  opacity: 1
+  transition: $transition
+
+.text--animation-enter-done
+  transform: translate3d(0,0,0)
+
+.text--animation-exit-active
+  transform: translate3d(0,-$transformValue,0)
+  transition: $transition
