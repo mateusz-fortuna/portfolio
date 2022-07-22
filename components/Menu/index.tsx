@@ -11,7 +11,7 @@ const Menu = () => {
   return (
     <div className={styles.menu}>
       <Background isMounted={isMenuOpened} />
-      <Navigation />
+      <Navigation isMenuOpened={isMenuOpened} />
       <Button onClick={toggleIsMenuOpened} hasExitState={isMenuOpened} />
     </div>
   );

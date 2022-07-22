@@ -2,22 +2,41 @@ import { useEffect, useRef, useState } from "react";
 import styles from "../../../styles/Menu.module.sass";
 import SectionsList from "./SectionsList";
 
-const Navigation = () => {
-  const [isTextMounted, setIsTextMounted] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+type Props = {
+  isMenuOpened: boolean;
+};
+
+const Navigation = ({ isMenuOpened }: Props) => {
   const timeout = 1000;
-  const mountText = () => setIsTextMounted(true);
+  const [isTextMounted, setIsTextMounted] = useState(false);
+  const [isSectionMounted, setIsSectionMounted] = useState(false);
+  const sectionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    timeoutRef.current = setTimeout(mountText, timeout);
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    const unmountSection = () => setIsSectionMounted(false);
+    const displayText = () => {
+      setIsTextMounted(true);
+      setIsSectionMounted(true);
     };
-  }, []);
+    const hideText = () => {
+      setIsTextMounted(false);
+      sectionTimeoutRef.current = setTimeout(unmountSection, timeout);
+    };
+
+    if (isMenuOpened) {
+      displayText();
+    } else {
+      hideText();
+    }
+
+    return () => {
+      if (sectionTimeoutRef.current) clearTimeout(sectionTimeoutRef.current);
+    };
+  }, [isMenuOpened]);
 
   return (
     <nav className={styles.menu__navigation}>
-      {isTextMounted && <SectionsList isMounted={isTextMounted} />}
+      {isSectionMounted && <SectionsList isMounted={isTextMounted} />}
     </nav>
   );
 };

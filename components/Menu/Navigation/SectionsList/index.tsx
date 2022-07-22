@@ -1,34 +1,20 @@
 import { content } from "../../../../public/content";
-import AnimatedText from "../../../AnimatedText";
-import Item from "../Item";
 import ProjectsList from "../ProjectsList";
+import Item from "./Item";
 
 export type Props = {
   isMounted: boolean;
 };
 
+const projectNames = Object.keys(content);
+
 const SectionsList = ({ isMounted }: Props) => (
   <ol>
-    {Object.keys(content).map((sectionName) => {
-      if (sectionName === "projects")
-        return (
-          <>
-            <Item url={"/#" + sectionName} key={sectionName}>
-              <h1>
-                <AnimatedText mount={isMounted}>{sectionName}</AnimatedText>
-              </h1>
-            </Item>
-            <ProjectsList isMounted={isMounted} />
-          </>
-        );
-      return (
-        <Item url={"/#" + sectionName} key={sectionName}>
-          <h1>
-            <AnimatedText mount={isMounted}>{sectionName}</AnimatedText>
-          </h1>
-        </Item>
-      );
-    })}
+    <Item isMounted={isMounted} name={projectNames[0]} nth={0} />
+    <Item isMounted={isMounted} name={projectNames[1]} nth={1}>
+      <ProjectsList isMounted={isMounted} />
+    </Item>
+    <Item isMounted={isMounted} name={projectNames[2]} nth={5} />
   </ol>
 );
 

@@ -1,4 +1,5 @@
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Transition, TransitionGroup } from "react-transition-group";
+import { transitionStyles } from "./transitionStyles";
 import styles from "../../styles/AnimatedText.module.sass";
 
 type Props = {
@@ -14,34 +15,35 @@ const splitText = (txt: string) => {
 
 const AnimatedText = ({ mount, children, nth = 0 }: Props): JSX.Element => {
   const textLines = splitText(children);
-  const animationClass = "text--animation";
-  const animationDelay = 100;
-  const componentDelay = nth * animationDelay * 2;
+  const animationDelay = 50;
+  const componentDelay = nth * animationDelay;
   const animationDuration = 1000 + componentDelay;
 
   return (
     <TransitionGroup>
       <p>
         {textLines.map((line, index) => (
-          <div className="text__wrapper" key={`line${index}`}>
-            <CSSTransition
+          <div className={styles.text__wrapper} key={`line${index}`}>
+            <Transition
               in={mount}
-              classNames={animationClass}
               timeout={animationDuration + index * animationDelay}
               appear
               unmountOnExit
             >
-              <span
-                className={`text ${animationClass}`}
-                style={{
-                  transitionDelay: `${
-                    index * animationDelay + componentDelay
-                  }ms`,
-                }}
-              >
-                {line}
-              </span>
-            </CSSTransition>
+              {(status) => (
+                <span
+                  className={`${styles.text}`}
+                  style={{
+                    transitionDelay: `${
+                      index * animationDelay + componentDelay
+                    }ms`,
+                    ...transitionStyles[status],
+                  }}
+                >
+                  {line}
+                </span>
+              )}
+            </Transition>
           </div>
         ))}
       </p>
