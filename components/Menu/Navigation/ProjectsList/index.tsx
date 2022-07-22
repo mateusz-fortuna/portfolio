@@ -1,10 +1,11 @@
+import styles from "../../../../styles/Menu.module.sass";
 import { content } from "../../../../public/content";
 import { Props } from "../SectionsList";
 import AnimatedText from "../../../AnimatedText";
 import Item from "../Item";
 
 const ProjectsList = ({ isMounted }: Props) => (
-  <ol>
+  <ol className={styles.menu__navigation_projects_list}>
     {Object.keys(content.projects).map((projectName, index) => (
       <Item url={"/casestudy/" + projectName} key={projectName}>
         <h2>

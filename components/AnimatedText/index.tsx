@@ -6,6 +6,7 @@ type Props = {
   mount: boolean;
   children: string;
   nth?: number;
+  style?: React.CSSProperties;
 };
 
 const splitText = (txt: string) => {
@@ -13,7 +14,12 @@ const splitText = (txt: string) => {
   return txt.match(linesSplittingRegex)?.map((line) => line.trimEnd()) || [txt];
 };
 
-const AnimatedText = ({ mount, children, nth = 0 }: Props): JSX.Element => {
+const AnimatedText = ({
+  mount,
+  children,
+  nth = 0,
+  style,
+}: Props): JSX.Element => {
   const textLines = splitText(children);
   const animationDelay = 50;
   const componentDelay = nth * animationDelay;
@@ -21,12 +27,15 @@ const AnimatedText = ({ mount, children, nth = 0 }: Props): JSX.Element => {
 
   return (
     <TransitionGroup>
-      <p>
+      <p style={style}>
         {textLines.map((line, index) => (
           <div className={styles.text__wrapper} key={`line${index}`}>
             <Transition
               in={mount}
-              timeout={animationDuration + index * animationDelay}
+              timeout={{
+                enter: 0,
+                exit: animationDuration + index * animationDelay,
+              }}
               appear
               unmountOnExit
             >

@@ -46,15 +46,34 @@
   height: 100%
   width: 0%
   transition: $transition
+  transition-delay: .5s
 
 .menu__background_opened
   width: 512px
+  transition-delay: 0s
 
 // ----------NAVIGATION---------- //
 
 .menu__navigation
   z-index: 1
   text-transform: uppercase
+  & > ol
+    & > li:nth-child(2) > h1
+      margin-bottom: 0
+      & > div > p
+        margin-bottom: 0
+    & > ol
+      margin-top: -0.5rem
+    & > li:last-child > h1
+      margin: 0
+      & > div > p
+        margin: 0
+
+.menu__navigation_projects_list
+  padding-left: 0
+  & > li:not(:last-child) > h2
+    margin-bottom: 0
+    
 
 // ----------MEDIA-QUERIES---------- //
 
