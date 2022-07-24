@@ -4,10 +4,14 @@ import { Props } from "../SectionsList";
 import AnimatedText from "../../../AnimatedText";
 import Item from "../Item";
 
-const ProjectsList = ({ isMounted }: Props) => (
+const ProjectsList = ({ isMounted, closeMenu }: Props) => (
   <ol className={styles.menu__navigation_projects_list}>
     {Object.keys(content.projects).map((projectName, index) => (
-      <Item url={"/casestudy/" + projectName} key={projectName}>
+      <Item
+        key={projectName}
+        url={"/casestudy/" + projectName}
+        onClick={closeMenu}
+      >
         <h2>
           <AnimatedText mount={isMounted} nth={index + 1}>
             {projectName}

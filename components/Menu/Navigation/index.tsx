@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { CloseMenu } from "..";
 import styles from "../../../styles/Menu.module.sass";
 import SectionsList from "./SectionsList";
 
 type Props = {
   isMenuOpened: boolean;
+  closeMenu: CloseMenu;
 };
 
-const Navigation = ({ isMenuOpened }: Props) => {
+const Navigation = ({ isMenuOpened, closeMenu }: Props) => {
   const timeout = 1000;
   const [isTextMounted, setIsTextMounted] = useState(false);
   const [isSectionMounted, setIsSectionMounted] = useState(false);
@@ -36,7 +38,9 @@ const Navigation = ({ isMenuOpened }: Props) => {
 
   return (
     <nav className={styles.menu__navigation}>
-      {isSectionMounted && <SectionsList isMounted={isTextMounted} />}
+      {isSectionMounted && (
+        <SectionsList isMounted={isTextMounted} closeMenu={closeMenu} />
+      )}
     </nav>
   );
 };
