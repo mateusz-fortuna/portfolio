@@ -1,4 +1,4 @@
-type Section = {
+export type Section = {
   title: string;
   subtitle: string;
   description: string;
