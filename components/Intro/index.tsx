@@ -8,7 +8,7 @@ const Intro = () => {
   const { src, alt } = content.intro.image;
 
   return (
-    <section className={styles.intro}>
+    <section className={styles.intro} id={Object.keys(content)[0]}>
       <Image src={src} alt={alt} hasBackground />
       <TextSection
         title={title}
