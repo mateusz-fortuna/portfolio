@@ -3,7 +3,7 @@ export type Section = {
   subtitle: string;
   description: string;
 };
-type ImageData = {
+export type ImageData = {
   src: string;
   alt: string;
 };
@@ -15,7 +15,7 @@ type ProjectData = {
   [key in string]: Content;
 };
 
-const src = "";
+const src = "/images/intro/sample.jpg";
 const alt = "";
 const subtitle = "Hi, let me show you some projects!";
 const description =
