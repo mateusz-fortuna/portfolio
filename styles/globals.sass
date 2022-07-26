@@ -18,12 +18,14 @@ h1
   font-family: 'Martel', serif
   font-weight: normal
   font-size: 1.953rem
-  margin-bottom: $margin-standard
+  margin-top: 0
+  margin-bottom: $margin-standard / 2
 h2
   font-family: 'Poppins', sans-serif
   font-weight: normal
   font-size: 1.25rem
-  margin-bottom: $margin-standard
+  margin-top: 0
+  margin-bottom: $margin-standard / 3
 
 ol
   list-style-type: none
@@ -48,3 +50,10 @@ li
 
 button
   cursor: pointer
+
+@media screen and (orientation: portrait)
+  html, body
+    font-size: 14px
+  h2
+    margin-bottom: $margin-standard / 2
+

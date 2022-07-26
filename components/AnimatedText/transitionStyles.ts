@@ -13,6 +13,7 @@ export const transitionStyles: TransitionStyles = {
   },
   entered: {
     transform: `translate3d(0,0,0)`,
+    opacity: 1,
   },
   exiting: {
     transform: `translate3d(0, -${variables.transformValue}, 0)`,

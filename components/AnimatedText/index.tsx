@@ -27,7 +27,7 @@ const AnimatedText = ({
 
   return (
     <TransitionGroup>
-      <p style={style}>
+      <div style={style}>
         {textLines.map((line, index) => (
           <div className={styles.text__wrapper} key={`line${index}`}>
             <Transition
@@ -55,7 +55,7 @@ const AnimatedText = ({
             </Transition>
           </div>
         ))}
-      </p>
+      </div>
     </TransitionGroup>
   );
 };
