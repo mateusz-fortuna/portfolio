@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Intro from "../components/Intro";
+import Projects from "../components/Projects";
 import styles from "../styles/Home.module.sass";
 
 const Home: NextPage = () => {
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Intro />
+      <Projects />
     </div>
   );
 };

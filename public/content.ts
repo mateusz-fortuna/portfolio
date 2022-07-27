@@ -7,7 +7,7 @@ export type ImageData = {
   src: string;
   alt: string;
 };
-type Content = {
+export type Content = {
   section: Section;
   image: ImageData;
 };
