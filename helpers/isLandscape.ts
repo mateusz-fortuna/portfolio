@@ -1,1 +1,1 @@
-export const isLandscape = (aspectRatio: number) => aspectRatio > 1;
+export const isLandscape = (aspectRatio: number): boolean => aspectRatio > 1;

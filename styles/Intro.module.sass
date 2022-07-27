@@ -6,3 +6,13 @@
   background-color: $color-background
 
 @media screen and (orientation: landscape)
+  .intro
+    display: flex
+    flex-direction: row-reverse
+    align-items: center
+    justify-content: left
+    height: 100%
+    width: calc(100% - 2 * $margin-standard)
+    & > *
+      display: inline-block
+      width: 50%

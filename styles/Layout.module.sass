@@ -1,6 +1,9 @@
 @import './variables.module.sass'
 
 .layout
-  display: flex
   padding: $margin-standard
   background-color: $color-background
+
+@media screen and (orientation: landscape)
+  .layout
+    height: 100vh

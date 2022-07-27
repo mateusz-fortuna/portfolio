@@ -33,7 +33,7 @@ const Image = ({ src, alt, hasBackground }: Props) => {
   const imageWrapperStyle = {
     position: "relative",
     paddingBottom: hasBackground
-      ? `calc(${variables.marginStandard} / 2`
+      ? `calc(${variables.marginStandard} / 2)`
       : undefined,
   } as React.CSSProperties;
 
