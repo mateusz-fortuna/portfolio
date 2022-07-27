@@ -16,6 +16,7 @@ type ProjectData = {
 };
 
 const src = "/images/intro/sample.jpg";
+const projectThumbnailSrc = "/images/caseStudies/foodbot/projectThumbnail.jpg";
 const alt = "";
 const subtitle = "Hi, let me show you some projects!";
 const description =
@@ -40,7 +41,7 @@ export const content = {
         subtitle,
         description,
       },
-      image: { src, alt },
+      image: { src: projectThumbnailSrc, alt },
     },
     second: {
       section: {
@@ -49,7 +50,7 @@ export const content = {
         description,
       },
       image: {
-        src,
+        src: projectThumbnailSrc,
         alt,
       },
     },
@@ -60,7 +61,7 @@ export const content = {
         description,
       },
       image: {
-        src,
+        src: projectThumbnailSrc,
         alt,
       },
     },
