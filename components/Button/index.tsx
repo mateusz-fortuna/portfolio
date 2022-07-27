@@ -2,7 +2,7 @@ import { ReactElement, CSSProperties } from "react";
 import styles from "../../styles/Button.module.sass";
 
 export type ButtonProps = {
-  onClick: () => void;
+  onClick?: () => void;
   children?: ReactElement;
   style?: CSSProperties;
   className?: string;

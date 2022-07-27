@@ -3,6 +3,7 @@ import variables from "../../../styles/variables.module.sass";
 import styles from "../../../styles/Projects.module.sass";
 import ProjectThumbnail from "../../Image";
 import TextSection from "../../TextSection";
+import Button from "../Button";
 
 const MobileView = ({ image, section, name }: Props) => {
   const imageWrapperStyle = {
@@ -15,6 +16,7 @@ const MobileView = ({ image, section, name }: Props) => {
       <ProjectThumbnail {...image} wrapperStyle={imageWrapperStyle} />
       <div className={styles.projects__mobileView_textSectionWrapper}>
         <TextSection {...section} />
+        <Button name={name} />
       </div>
     </div>
   );
