@@ -3,7 +3,11 @@ import { Content } from "../../public/content";
 import DesktopView from "../Project/DesktopView";
 import MobileView from "../Project/MobileView";
 
-const Project = (props: Content) => (
+export type Props = Content & {
+  name: string;
+};
+
+const Project = (props: Props) => (
   <>
     {useIsLandscape() ? <DesktopView {...props} /> : <MobileView {...props} />}
   </>

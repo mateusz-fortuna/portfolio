@@ -1,9 +1,13 @@
 @import './variables.module.sass'
 
 .layout
-  padding: $margin-standard
+  padding-left: $margin-standard
+  padding-right: $margin-standard
+  padding-top: $margin-standard
   background-color: $color-background
 
 @media screen and (orientation: landscape)
   .layout
     height: 100vh
+    padding-bottom: $margin-standard
+    padding-right: 0

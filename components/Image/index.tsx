@@ -8,6 +8,7 @@ import variables from "../../styles/variables.module.sass";
 
 type Props = ImageData & {
   hasBackground?: boolean;
+  wrapperStyle?: React.CSSProperties;
 };
 export type Size = {
   height: number;
@@ -15,15 +16,26 @@ export type Size = {
 };
 type OnLoadingComplete = NonNullable<ImageProps["onLoadingComplete"]>;
 
-const Image = ({ src, alt, hasBackground }: Props) => {
+const Image = ({ src, alt, hasBackground, wrapperStyle }: Props) => {
   const imageWrapperRef = useRef<HTMLDivElement | null>(null);
-  const [backgroundSize, setBackgroundSize] = useState<Size | null>(null);
+  const [loadedImageSize, setLoadedImageSize] = useState<Size | null>(null);
+  const hasLandscapeOrientation =
+    loadedImageSize &&
+    isLandscape(loadedImageSize.width / loadedImageSize.height);
 
   const imageProps = {
     src,
     alt,
-    width: "100%",
-    height: "100%",
+    width: loadedImageSize
+      ? hasLandscapeOrientation
+        ? loadedImageSize.width
+        : "100%"
+      : "100%",
+    height: loadedImageSize
+      ? hasLandscapeOrientation
+        ? loadedImageSize.height
+        : "100%"
+      : "100%",
     layout: "responsive",
     objectFit: "contain",
     objectPosition: "75%",
@@ -35,6 +47,7 @@ const Image = ({ src, alt, hasBackground }: Props) => {
     paddingBottom: hasBackground
       ? `calc(${variables.marginStandard} / 2)`
       : undefined,
+    ...wrapperStyle,
   } as React.CSSProperties;
 
   const handleLoadingComplete: OnLoadingComplete = ({
@@ -57,7 +70,7 @@ const Image = ({ src, alt, hasBackground }: Props) => {
         ? naturalWidth
         : imageWidth * aspectRatio;
 
-      setBackgroundSize({ height: backgroundHeight, width: backgroundWidth });
+      setLoadedImageSize({ height: backgroundHeight, width: backgroundWidth });
     }
   };
 
@@ -65,7 +78,9 @@ const Image = ({ src, alt, hasBackground }: Props) => {
     <>
       <div ref={imageWrapperRef} style={imageWrapperStyle}>
         <NextImage {...imageProps} onLoadingComplete={handleLoadingComplete} />
-        {hasBackground && backgroundSize && <Background {...backgroundSize} />}
+        {hasBackground && loadedImageSize && (
+          <Background {...loadedImageSize} />
+        )}
       </div>
     </>
   );

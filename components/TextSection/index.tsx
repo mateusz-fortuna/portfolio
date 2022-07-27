@@ -2,7 +2,7 @@ import { Section as Props } from "../../public/content";
 import AnimatedText from "../AnimatedText";
 
 const TextSection = ({ title, subtitle, description }: Props) => (
-  <div className="">
+  <div id="textSection">
     <h1>
       <AnimatedText mount nth={0}>
         {title}
