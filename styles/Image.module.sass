@@ -5,10 +5,9 @@
   position: absolute
   left: 50%
   top: 0
-  transform: translate3d(calc(-50% - $margin-standard / 3),0,0)
+  transform: translate3d(-50%,0,0)
   margin-top: $margin-standard / 1.5
 
-.image__background_landscape
-  
-
-.image__background_mobile
+@media screen and (orientation: portrait)
+  .image__background
+    transform: translate3d(calc(-50% - $margin-standard / 3),0,0)

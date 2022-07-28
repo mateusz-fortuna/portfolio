@@ -5,6 +5,7 @@ import { ImageProps } from "next/dist/client/image";
 import { useState, useRef } from "react";
 import { isLandscape } from "../../helpers/isLandscape";
 import variables from "../../styles/variables.module.sass";
+import { useIsLandscape } from "../../hooks/useIsLandscape";
 
 type Props = ImageData & {
   hasBackground?: boolean;
@@ -19,6 +20,7 @@ type OnLoadingComplete = NonNullable<ImageProps["onLoadingComplete"]>;
 const Image = ({ src, alt, hasBackground, wrapperStyle }: Props) => {
   const imageWrapperRef = useRef<HTMLDivElement | null>(null);
   const [loadedImageSize, setLoadedImageSize] = useState<Size | null>(null);
+  const hasDeviceLandscapeOrientation = useIsLandscape();
   const hasLandscapeOrientation =
     loadedImageSize &&
     isLandscape(loadedImageSize.width / loadedImageSize.height);
@@ -49,25 +51,29 @@ const Image = ({ src, alt, hasBackground, wrapperStyle }: Props) => {
     ...wrapperStyle,
   } as React.CSSProperties;
 
-  const handleLoadingComplete: OnLoadingComplete = ({
+  const computeLoadedImageSize: OnLoadingComplete = ({
     naturalHeight,
     naturalWidth,
   }) => {
     const wrapper = imageWrapperRef.current;
     if (wrapper) {
       const image = wrapper.children[0].children[1] as HTMLImageElement;
-      const aspectRatio = naturalWidth / naturalHeight;
-      const hasLandscapeOrientation = isLandscape(aspectRatio);
-
       const imageHeight = image.clientHeight;
       const imageWidth = image.clientWidth;
+      const aspectRatio = naturalWidth / naturalHeight;
+      const hasLandscapeOrientation = isLandscape(aspectRatio);
+      const maxHeight = parseInt(variables.maxImageHeight.slice(0, -2));
 
       const backgroundHeight = hasLandscapeOrientation
         ? naturalHeight
-        : imageHeight;
+        : hasDeviceLandscapeOrientation
+        ? imageHeight
+        : Math.min(imageHeight, maxHeight);
       const backgroundWidth = hasLandscapeOrientation
         ? naturalWidth
-        : imageWidth * aspectRatio;
+        : hasDeviceLandscapeOrientation
+        ? imageWidth * aspectRatio
+        : Math.min(imageWidth, maxHeight) * aspectRatio;
 
       setLoadedImageSize({ height: backgroundHeight, width: backgroundWidth });
     }
@@ -79,7 +85,7 @@ const Image = ({ src, alt, hasBackground, wrapperStyle }: Props) => {
         {hasBackground && loadedImageSize && (
           <Background {...loadedImageSize} />
         )}
-        <NextImage {...imageProps} onLoadingComplete={handleLoadingComplete} />
+        <NextImage {...imageProps} onLoadingComplete={computeLoadedImageSize} />
       </div>
     </>
   );

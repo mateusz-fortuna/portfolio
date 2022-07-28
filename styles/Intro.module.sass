@@ -18,3 +18,11 @@
     & > *
       display: inline-block
       width: 50%
+
+@media screen and (orientation: portrait) and (min-height: $max-imageHeight)
+  .intro > div > span
+      max-height: $max-imageHeight
+      & > *
+        max-height: $max-imageHeight
+      & > img
+        object-position: calc(50% + $margin-standard / 4) !important
