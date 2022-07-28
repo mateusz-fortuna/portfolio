@@ -39,7 +39,6 @@ const Image = ({ src, alt, hasBackground, wrapperStyle }: Props) => {
     layout: "responsive",
     objectFit: "contain",
     objectPosition: "75%",
-    style: { zIndex: 1 },
   } as ImageProps;
 
   const imageWrapperStyle = {
@@ -77,10 +76,10 @@ const Image = ({ src, alt, hasBackground, wrapperStyle }: Props) => {
   return (
     <>
       <div ref={imageWrapperRef} style={imageWrapperStyle}>
-        <NextImage {...imageProps} onLoadingComplete={handleLoadingComplete} />
         {hasBackground && loadedImageSize && (
           <Background {...loadedImageSize} />
         )}
+        <NextImage {...imageProps} onLoadingComplete={handleLoadingComplete} />
       </div>
     </>
   );

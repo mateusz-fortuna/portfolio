@@ -9,8 +9,8 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <div className={styles.layout}>
-      <Menu />
       {children}
+      <Menu />
     </div>
   );
 };

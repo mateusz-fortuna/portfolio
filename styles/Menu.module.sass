@@ -4,9 +4,9 @@
   position: fixed
   display: flex
   inset: 0
-  z-index: 10
   align-items: center
   padding: $margin-standard
+  pointer-events: none
 
 // ----------ICON---------- //
 
@@ -33,7 +33,7 @@
 .menu__button
   position: absolute
   align-self: flex-start
-  z-index: 2
+  pointer-events: all
 
 // ----------BACKGROUND---------- //
 
@@ -55,7 +55,7 @@
 // ----------NAVIGATION---------- //
 
 .menu__navigation
-  z-index: 1
+  pointer-events: all
   text-transform: uppercase
   & > ol
     & > li:nth-child(2) > h1
