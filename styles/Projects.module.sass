@@ -11,22 +11,42 @@
   margin-left: -$margin-standard
   padding: $margin-standard
 
+.line
+  position: absolute
+  content: ""
+  height: 1px
+  background-color: $color-font
+
 .project__button_arrow
+  margin-top: $margin-standard
   color: $color-font
   font-weight: normal
   position: relative
   & > h2
     margin-bottom: 0
+  & > *:not(h2)
+    transition: all .5s ease
 
 .project__button_arrow_core
-  position: absolute
-  content: ""
   left: 0
   width: calc( 100% + $margin-standard / 2 )
-  height: 1px
-  background-color: $color-font
-
+  
 .project__button_arrow_head
   position: absolute
-  left: calc( 100% + $margin-standard / 2)
-  transform: translate3d(-50%,-50%,0)
+  right: -$margin-standard / 2 + $margin-standard / 6
+  & > span
+    width: $margin-standard / 6
+    transform-origin: right
+  & > span:first-child
+    transform: rotate(-45deg)
+  & > span:last-child
+    transform: rotate(45deg)
+
+.project__button_arrow:hover .project__button_arrow_core
+  width: calc( 100% + $margin-standard )
+.project__button_arrow:hover .project__button_arrow_head
+  right: -$margin-standard + $margin-standard / 6
+
+
+    
+    

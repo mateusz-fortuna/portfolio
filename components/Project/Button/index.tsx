@@ -11,8 +11,13 @@ const Button = ({ name }: Props) => (
     <Link href={"/casestudy/" + name}>
       <div className={styles.project__button_arrow}>
         <h2>Case study</h2>
-        <span className={styles.project__button_arrow_core} />
-        <span className={styles.project__button_arrow_head}>{">"}</span>
+        <span
+          className={styles.line + " " + styles.project__button_arrow_core}
+        />
+        <div className={styles.project__button_arrow_head}>
+          <span className={styles.line} />
+          <span className={styles.line} />
+        </div>
       </div>
     </Link>
   </DefaultButton>
