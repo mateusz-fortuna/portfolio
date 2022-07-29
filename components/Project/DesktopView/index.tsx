@@ -11,7 +11,7 @@ const DesktopView = ({ image, section, name }: Props) => (
       <TextSection {...section} />
       <Button name={name} />
     </div>
-    <ProjectThumbnail {...image} />
+    <ProjectThumbnail {...image} hasBackground />
   </div>
 );
 

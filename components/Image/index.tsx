@@ -49,6 +49,7 @@ const Image = ({ src, alt, hasBackground, wrapperStyle }: Props) => {
       ? `calc(${variables.marginStandard} / 2)`
       : undefined,
     ...wrapperStyle,
+    width: loadedImageSize && hasLandscapeOrientation && loadedImageSize.width,
   } as React.CSSProperties;
 
   const computeLoadedImageSize: OnLoadingComplete = ({
