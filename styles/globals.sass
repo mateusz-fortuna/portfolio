@@ -8,6 +8,13 @@ html, body
   color: $color-font
   font-size: 1rem
   scroll-behavior: smooth
+  height: 100%
+  
+#__next
+  height: 100%
+  overflow-y: hidden
+  background-color: $color-background
+
 
 a
   color: inherit
@@ -56,6 +63,11 @@ button
 @media screen and (orientation: portrait)
   html, body
     font-size: 14px
+    height: auto
   h2
     margin-bottom: $margin-standard / 2
+
+  #__next
+    height: auto
+    overflow-y: auto
 

@@ -2,6 +2,7 @@
   
 
 .projects__desktopView
+  background-color: $color-background
 
 .projects__mobileView:nth-child(odd) > div:nth-child(2)
   background-color: $color-secondary
@@ -48,6 +49,11 @@
 .project__button_arrow:hover .project__button_arrow_head
   right: -$margin-standard + $margin-standard / 6
 
+@media screen and (orientation: landscape)
+  .projects
+    display: inline-flex
+    position: absolute
+    height: 100%
 
     
     
