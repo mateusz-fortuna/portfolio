@@ -1,24 +1,36 @@
+/* eslint-disable @next/next/no-img-element */
+import { useViewportDimensions } from "../../../hooks/useViewportDimensions";
 import { Props } from "..";
-import variables from "../../../styles/variables.module.sass";
-import styles from "../../../styles/Projects.module.sass";
-import ProjectThumbnail from "../../Image";
 import TextSection from "../../TextSection";
 import Button from "../Button";
+import variables from "../../../styles/variables.module.sass";
+import styles from "../../../styles/Projects.module.sass";
 
 const MobileView = ({ image, section, name }: Props) => {
+  const viewportDimensions = useViewportDimensions();
   const imageWrapperStyle = {
-    width: "100vw",
+    width: viewportDimensions?.width,
     left: `-${variables.marginStandard}`,
+    position: "relative",
   } as React.CSSProperties;
 
   return (
-    <div className={styles.projects__mobileView}>
-      <ProjectThumbnail {...image} wrapperStyle={imageWrapperStyle} />
-      <div className={styles.projects__mobileView_textSectionWrapper}>
-        <TextSection {...section} />
-        <Button name={name} />
+    viewportDimensions && (
+      <div className={styles.projects__mobileView}>
+        <div style={imageWrapperStyle}>
+          <img
+            src={image.src}
+            alt={image.alt}
+            width={viewportDimensions.width}
+            style={{ marginBottom: `calc(${variables.marginStandard} / -12)` }}
+          />
+        </div>
+        <div className={styles.projects__mobileView_textSectionWrapper}>
+          <TextSection {...section} />
+          <Button name={name} />
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

@@ -1,18 +1,7 @@
-import { useEffect, useState } from "react";
+import { useViewportDimensions } from "./useViewportDimensions";
 
 export const useIsLandscape = () => {
-  const [isLandscape, setIsLandscape] = useState(false);
-
-  const detectOrientation = () => {
-    const { clientHeight, clientWidth } = document.body;
-    return setIsLandscape(clientWidth > clientHeight);
-  };
-
-  useEffect(() => {
-    detectOrientation();
-    window.addEventListener("resize", detectOrientation);
-    return () => window.removeEventListener("resize", detectOrientation);
-  }, []);
-
-  return isLandscape;
+  const viewportDimensions = useViewportDimensions();
+  if (!viewportDimensions) return false;
+  return viewportDimensions.width > viewportDimensions.height;
 };

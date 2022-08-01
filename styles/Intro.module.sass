@@ -9,15 +9,14 @@
 
 @media screen and (orientation: landscape)
   .intro
-    display: inline-flex
-    flex-direction: row-reverse
-    align-items: center
-    justify-content: left
     height: 100%
-    width: calc(100% - 2 * $margin-standard)
+    display: inline-block
+    position: relative
     & > *
+      top: 50%
+      transform: translate3d(0,calc(-50% - $margin-standard),0)
       display: inline-block
-      width: 50%
+      margin-right: 2 * $margin-standard
 
 @media screen and (orientation: portrait) and (min-height: $max-imageHeight)
   .intro > div > span
