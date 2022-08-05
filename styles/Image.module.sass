@@ -2,7 +2,6 @@
   
 .image__wrapper
   position: relative
-  margin-bottom: 0.5 * $margin-standard
   margin-left: $margin-standard
 
 .image
@@ -15,3 +14,7 @@
   inset: 0
   background-color: $color-secondary
   transform: translate3d(-$margin-standard,$margin-standard,0)
+
+@media screen and (orientation: landscape)
+  .image__wrapper
+    margin-bottom: 0.5 * $margin-standard
