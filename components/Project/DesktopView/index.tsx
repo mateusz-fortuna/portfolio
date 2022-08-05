@@ -1,9 +1,8 @@
-import { Content } from "../../../public/content";
 import { Props } from "..";
 import styles from "../../../styles/Projects.module.sass";
 import TextSection from "../../TextSection";
 import Button from "../Button";
-import ProjectThumbnail, { Size } from "../../Image";
+import ProjectThumbnail from "../../ImageWithBackground";
 
 const DesktopView = ({ image, section, name }: Props) => {
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Size } from "../components/Image";
+import { Size } from "../public/content";
 
 export const useViewportDimensions = () => {
   const [viewportDimensions, setViewportDimensions] = useState<Size | null>(

@@ -3,21 +3,31 @@ export type Section = {
   subtitle: string;
   description: string;
 };
+export type Size = {
+  height: number;
+  width: number;
+};
 export type ImageData = {
   src: string;
   alt: string;
+  aspectRatio: Size;
 };
 export type Content = {
   section: Section;
   image: ImageData;
 };
 type ProjectData = {
+  // eslint-disable-next-line no-unused-vars
   [key in string]: Content;
 };
 
-const src = "/images/intro/sample.jpg";
 const projectThumbnailSrc = "/images/caseStudies/foodbot/projectThumbnail.jpg";
+const src = "/images/intro/sample.jpg";
 const alt = "";
+const aspectRatio: Size = {
+  width: 16,
+  height: 9,
+};
 const subtitle = "Hi, let me show you some projects!";
 const description =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -32,6 +42,10 @@ export const content = {
     image: {
       src,
       alt,
+      aspectRatio: {
+        width: 1,
+        height: 1,
+      },
     },
   } as Content,
   projects: {
@@ -41,7 +55,7 @@ export const content = {
         subtitle,
         description,
       },
-      image: { src: projectThumbnailSrc, alt },
+      image: { src: projectThumbnailSrc, alt, aspectRatio },
     },
     second: {
       section: {
@@ -52,6 +66,7 @@ export const content = {
       image: {
         src: projectThumbnailSrc,
         alt,
+        aspectRatio,
       },
     },
     portfolio: {
@@ -63,6 +78,7 @@ export const content = {
       image: {
         src: projectThumbnailSrc,
         alt,
+        aspectRatio,
       },
     },
   } as ProjectData,

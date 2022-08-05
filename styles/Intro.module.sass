@@ -2,7 +2,8 @@
 
 .intro
   width: 100%
-  padding-top: 3rem
+  padding-left: $margin-standard
+  padding-right: $margin-standard
   background-color: $color-background
   & > *
     margin-bottom: $margin-standard * 2
@@ -10,18 +11,9 @@
 @media screen and (orientation: landscape)
   .intro
     height: 100%
-    display: inline-block
-    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: row-reverse
     & > *
-      top: 50%
-      transform: translate3d(0,calc(-50% - $margin-standard),0)
-      display: inline-block
       margin-right: 2 * $margin-standard
-
-@media screen and (orientation: portrait) and (min-height: $max-imageHeight)
-  .intro > div > span
-      max-height: $max-imageHeight
-      & > *
-        max-height: $max-imageHeight
-      & > img
-        object-position: calc(50% + $margin-standard / 4) !important
