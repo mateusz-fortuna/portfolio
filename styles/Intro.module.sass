@@ -5,8 +5,10 @@
   padding-left: $margin-standard
   padding-right: $margin-standard
   background-color: $color-background
-  & > *
-    margin-bottom: $margin-standard * 2
+  margin-bottom: 2 * $margin-standard
+  align-items: flex-start
+  & > *:nth-child(1)
+      margin-bottom: $margin-standard
 
 @media screen and (orientation: landscape)
   .intro
@@ -15,5 +17,8 @@
     justify-content: center
     align-items: center
     flex-direction: row-reverse
-    & > *
+    justify-items: flex-start
+    margin-right: 2 * $margin-standard
+    & > *:nth-child(2)
       margin-right: 2 * $margin-standard
+   
