@@ -12,13 +12,15 @@
 
 @media screen and (orientation: landscape)
   .intro
+    width: auto
     height: 100%
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-direction: row-reverse
-    justify-items: flex-start
     margin-right: 2 * $margin-standard
+    & > *:nth-child(1)
+      margin-right: 2 * $margin-standard
     & > *:nth-child(2)
       margin-right: 2 * $margin-standard
+    & > *
+      display: inline-block
+      top: 50%
+      transform: translate3d(0,-50%,0)
    
