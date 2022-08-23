@@ -18,7 +18,10 @@ const Intro = () => {
   );
 
   return (
-    <section className={styles.intro} id={Object.keys(content)[0]}>
+    <section
+      className={styles.intro}
+      //id={hasDeviceLandscapeOrientation ? undefined : "intro"}
+    >
       <>
         {hasDeviceLandscapeOrientation
           ? [text, introImage]

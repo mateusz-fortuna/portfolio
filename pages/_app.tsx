@@ -1,13 +1,17 @@
 import "../styles/globals.sass";
+import { useEffect, useRef } from "react";
+import { useIsLandscape } from "../hooks/useIsLandscape";
 import Layout from "../components/Layout";
 import Home from ".";
-import { useRef } from "react";
-import { useIsLandscape } from "../hooks/useIsLandscape";
 import HorizontalNavigation from "../components/HorizontalNavigation";
 
 function MyApp() {
   const hasScreenLandscapeOrientation = useIsLandscape();
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    window.location.hash = "";
+  }, []);
 
   return (
     <Layout>
