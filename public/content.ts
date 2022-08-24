@@ -20,6 +20,16 @@ type ProjectData = {
   // eslint-disable-next-line no-unused-vars
   [key in string]: Content;
 };
+type Link = {
+  href: string;
+  text: string;
+};
+type Contact = {
+  description: string;
+  email: Link;
+  linkedin: Link;
+  github: Link;
+};
 
 const projectThumbnailSrc = "/images/caseStudies/foodbot/projectThumbnail.jpg";
 const src = "/images/intro/sample.jpg";
@@ -84,8 +94,17 @@ export const content = {
   } as ProjectData,
   contact: {
     description,
-    email: "mat.fortuna@wp.pl",
-    linkedin: "linkedin.com/mateusz-fortuna",
-    github: "github.com/mateusz-fortuna",
-  },
+    email: {
+      href: "mailto:mat.fortuna@wp.pl",
+      text: "mat.fortuna@wp.pl",
+    },
+    linkedin: {
+      href: "https://www.linkedin.com/mateusz-fortuna",
+      text: "linkedin.com/mateusz-fortuna",
+    },
+    github: {
+      href: "https://www.github.com/mateusz-fortuna",
+      text: "github.com/mateusz-fortuna",
+    },
+  } as Contact,
 };

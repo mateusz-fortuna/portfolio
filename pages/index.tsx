@@ -3,6 +3,7 @@ import Head from "next/head";
 import Intro from "../components/Intro";
 import Projects from "../components/Projects";
 import styles from "../styles/Home.module.sass";
+import Contact from "../components/Contact";
 
 const Home = forwardRef<HTMLDivElement>((_props, ref) => (
   <div className={styles.home__container} ref={ref}>
@@ -14,6 +15,7 @@ const Home = forwardRef<HTMLDivElement>((_props, ref) => (
     </Head>
     <Intro />
     <Projects />
+    <Contact />
   </div>
 ));
 Home.displayName = "Home";

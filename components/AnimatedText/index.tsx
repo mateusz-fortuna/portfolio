@@ -3,7 +3,7 @@ import { transitionStyles } from "./transitionStyles";
 import styles from "../../styles/AnimatedText.module.sass";
 
 type Props = {
-  mount: boolean;
+  mount?: boolean;
   children: string;
   nth?: number;
   style?: React.CSSProperties;
@@ -15,7 +15,7 @@ const splitText = (txt: string) => {
 };
 
 const AnimatedText = ({
-  mount,
+  mount = true,
   children,
   nth = 0,
   style,
