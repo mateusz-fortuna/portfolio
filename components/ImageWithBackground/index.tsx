@@ -17,11 +17,18 @@ const ImageWithBackground = ({ src, alt, aspectRatio }: Props) => {
     width: `calc((100vw - 2 * ${variables.marginStandard})`,
   } as CSSProperties;
 
+  const desktopWrapperStyle = {
+    ...desktopWrapperSize,
+    marginLeft: variables.marginStandard,
+    marginBottom: `calc(${variables.marginStandard} / 2)`,
+  } as CSSProperties;
+
   return (
     <div
       className={styles.image__wrapper}
-      style={isDesktop ? desktopWrapperSize : mobileWrapperSize}
+      style={isDesktop ? desktopWrapperStyle : mobileWrapperSize}
     >
+      {isDesktop && <div className={styles.image__background} />}
       <Image src={src} alt={alt} width="100%" height="100%" layout="fill" />
     </div>
   );
