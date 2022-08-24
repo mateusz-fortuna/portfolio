@@ -5,7 +5,27 @@
   padding-left: $margin-standard
   padding-right: $margin-standard
   padding-bottom: $margin-standard * 2
+  
+.contact__content_mobileView
   & > div
     margin-top: $margin-standard
-  & > div:nth-child(5)
+  & > div:nth-child(4)
+    margin-top: $margin-standard / 2
+  
+.contact__desktopView
+  padding-top: $margin-standard
+  padding-bottom: $margin-standard
+  padding-left: $margin-standard
+  padding-right: $margin-standard * 3
+
+.contact__content_desktopView
+  margin-left: $margin-standard * 3
+  padding-right: $margin-standard * 3
+  position: absolute
+  top: 50%
+  transform: translate3d(0,-50%,0)
+  & > div
+    margin-top: $margin-standard
+  & > div:nth-child(4)
+    display: table
     margin-top: $margin-standard / 2
