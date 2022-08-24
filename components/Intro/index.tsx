@@ -2,6 +2,7 @@ import { useIsLandscape } from "../../hooks/useIsLandscape";
 import { content } from "../../public/content";
 import styles from "../../styles/Intro.module.sass";
 import IntroImage from "../ImageWithBackground";
+import Section from "../Section";
 import TextSection from "../TextSection";
 
 const Intro = () => {
@@ -18,16 +19,13 @@ const Intro = () => {
   );
 
   return (
-    <section
-      className={styles.intro}
-      //id={hasDeviceLandscapeOrientation ? undefined : "intro"}
-    >
+    <Section className={styles.intro} portraitDeviceId="intro">
       <>
         {hasDeviceLandscapeOrientation
           ? [text, introImage]
           : [introImage, text]}
       </>
-    </section>
+    </Section>
   );
 };
 
