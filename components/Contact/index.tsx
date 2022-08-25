@@ -7,7 +7,7 @@ import Links from "./Links";
 import styles from "../../styles/Contact.module.sass";
 
 const Contact = () => {
-  const { description } = content.contact;
+  const { description } = content.home.contact;
   const hasDeviceLandscapeOrientation = useIsLandscape();
 
   const sectionClassName = hasDeviceLandscapeOrientation

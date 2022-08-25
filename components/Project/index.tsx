@@ -1,5 +1,5 @@
 import { useIsLandscape } from "../../hooks/useIsLandscape";
-import { Content } from "../../public/content";
+import { Content } from "../../public/contentTypes";
 import DesktopView from "../Project/DesktopView";
 import MobileView from "../Project/MobileView";
 

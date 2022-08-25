@@ -3,7 +3,7 @@ import Link from "../../Link";
 import variables from "../../../styles/variables.module.sass";
 
 const Links = () => {
-  const { email, github, linkedin } = content.contact;
+  const { email, github, linkedin } = content.home.contact;
 
   const emailStyle = {
     fontSize: "1.25rem",

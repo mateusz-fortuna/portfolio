@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { CSSProperties } from "react";
 import { useIsLandscape } from "../../hooks/useIsLandscape";
-import { ImageData as Props } from "../../public/content";
+import { ImageData as Props } from "../../public/contentTypes";
 import styles from "../../styles/Image.module.sass";
 import variables from "../../styles/variables.module.sass";
 

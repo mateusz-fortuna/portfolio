@@ -8,7 +8,7 @@ export type Props = {
   closeMenu: CloseMenu;
 };
 
-const projectNames = Object.keys(content);
+const projectNames = Object.keys(content.home);
 
 const SectionsList = ({ isMounted, closeMenu }: Props) => {
   const itemDefaultProps = {

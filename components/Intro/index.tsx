@@ -7,7 +7,7 @@ import TextSection from "../TextSection";
 
 const Intro = () => {
   const hasDeviceLandscapeOrientation = useIsLandscape();
-  const { section, image } = content.intro;
+  const { section, image } = content.home.intro;
 
   const introImage = <IntroImage {...image} />;
   const text = (

@@ -1,4 +1,4 @@
-import { Section as Props } from "../../public/content";
+import { Section as Props } from "../../public/contentTypes";
 import AnimatedText from "../AnimatedText";
 
 const TextSection = ({ title, subtitle, description }: Props) => (
