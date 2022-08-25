@@ -49,11 +49,11 @@ const HorizontalNavigation = ({ children, containerRef }: Props) => {
     // ----------HANDLE HASH CHANGE---------- //
 
     const introElement = containerRef.current?.children[0];
-    //const contactNode = containerRef.current?.children[2];
 
     const posX = {
       intro: 0,
       projects: introElement?.clientWidth || 0,
+      contact: containerRef.current?.scrollWidth || 0,
     };
 
     const goToHashPosition = () => {
@@ -64,6 +64,9 @@ const HorizontalNavigation = ({ children, containerRef }: Props) => {
           break;
         case "projects":
           setScroll((scroll) => ({ ...scroll, target: posX.projects }));
+          break;
+        case "contact":
+          setScroll((scroll) => ({ ...scroll, target: posX.contact }));
           break;
         default:
           scroll.target = 0;
