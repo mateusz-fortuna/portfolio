@@ -1,29 +1,18 @@
-import "../styles/globals.sass";
-import { useEffect, useRef } from "react";
-import { useIsLandscape } from "../hooks/useIsLandscape";
+import { AppProps } from "next/app";
+import { useEffect } from "react";
 import Layout from "../components/Layout";
-import Home from ".";
-import HorizontalNavigation from "../components/HorizontalNavigation";
+import "../styles/globals.sass";
 
-function MyApp() {
-  const hasScreenLandscapeOrientation = useIsLandscape();
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
+const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     window.location.hash = "";
   }, []);
 
   return (
     <Layout>
-      {hasScreenLandscapeOrientation ? (
-        <HorizontalNavigation containerRef={containerRef}>
-          <Home ref={containerRef} />
-        </HorizontalNavigation>
-      ) : (
-        <Home />
-      )}
+      <Component {...pageProps} />
     </Layout>
   );
-}
+};
 
 export default MyApp;
