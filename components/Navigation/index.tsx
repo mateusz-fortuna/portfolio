@@ -10,11 +10,12 @@ import { clamp } from "../../helpers/clamp";
 import { useRouter } from "next/router";
 
 type Props = {
+  direction: "horizontal" | "vertical";
   containerRef: MutableRefObject<HTMLDivElement | null>;
   children: ReactNode;
 };
 
-const HorizontalNavigation = ({ children, containerRef }: Props) => {
+const HorizontalNavigation = ({ children, containerRef, direction }: Props) => {
   const animationFrameRef = useRef(0);
   const [scroll, setScroll] = useState({
     current: 0,
@@ -30,11 +31,19 @@ const HorizontalNavigation = ({ children, containerRef }: Props) => {
     const smoothScroll = () => {
       if (containerRef.current) {
         const scrollLimit =
-          containerRef.current.scrollWidth - window.innerWidth;
+          direction === "horizontal"
+            ? containerRef.current.scrollWidth - window.innerWidth
+            : containerRef.current.scrollHeight - window.innerHeight;
+
         scroll.target = clamp(0, scrollLimit, scroll.target);
         const transition = lerp(scroll.current, scroll.target, scroll.ease);
         scroll.current = transition;
-        containerRef.current.style.transform = `translate3d(-${transition}px,0,0)`;
+
+        containerRef.current.style.transform =
+          direction === "horizontal"
+            ? `translate3d(-${transition}px,0,0)`
+            : `translate3d(0,-${transition}px,0)`;
+
         animationFrameRef.current = requestAnimationFrame(smoothScroll);
       }
     };
@@ -82,7 +91,7 @@ const HorizontalNavigation = ({ children, containerRef }: Props) => {
       window.removeEventListener("wheel", setScrollTarget);
       window.cancelAnimationFrame(animationFrameRef.current);
     };
-  }, [containerRef, router, scroll]);
+  }, [containerRef, router, scroll, direction]);
   return <>{children}</>;
 };
 
