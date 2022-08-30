@@ -1,33 +1,30 @@
-import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
 import { content } from "../../public/content";
-import { useEffect, useState } from "react";
-import { CaseStudyData } from "../../public/contentTypes";
-import { isTextInObjectKeys } from "../../helpers/isTextInObjectKeys";
 import TextSection from "../../components/TextSection";
 import styles from "../../styles/CaseStudy.module.sass";
 
 type PathName = keyof typeof content.casestudy;
+type Props = {
+  id: PathName;
+};
 
-const CaseStudy = () => {
-  const [data, setData] = useState<CaseStudyData | null>(null);
-  const { asPath } = useRouter();
+export const getServerSideProps: GetServerSideProps = async (context) => ({
+  props: {
+    id: context.query.id,
+  },
+});
 
-  useEffect(() => {
-    const id = asPath.split("/").pop() as PathName;
-    const isPathLoaded = isTextInObjectKeys(content.casestudy, id);
-    if (isPathLoaded) setData(content.casestudy[id]);
-  }, [asPath]);
+const CaseStudy = ({ id }: Props) => {
+  const { title, subtitle, description } = content.casestudy[id];
 
   return (
-    data && (
-      <div className={styles.caseStudy__mobileView}>
-        <TextSection
-          title={data.title}
-          subtitle={data.subtitle}
-          description={data.description}
-        />
-      </div>
-    )
+    <div className={styles.caseStudy__mobileView}>
+      <TextSection
+        title={title}
+        subtitle={subtitle}
+        description={description}
+      />
+    </div>
   );
 };
 
