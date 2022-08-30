@@ -8,6 +8,7 @@ import {
 } from "./contentTypes";
 
 const projectThumbnailSrc = "/images/caseStudies/foodbot/projectThumbnail.jpg";
+const verticalThumbnailSrc = "/images/caseStudies/foodbot/mobile/1.jpg";
 const src = "/images/intro/sample.jpg";
 const alt = "";
 const aspectRatio: Size = {
@@ -18,6 +19,14 @@ const sampleCaseStudyImageData: ImageData = {
   src: projectThumbnailSrc,
   alt,
   aspectRatio,
+};
+const verticalCaseStudyImageData: ImageData = {
+  src: verticalThumbnailSrc,
+  alt,
+  aspectRatio: {
+    width: 9,
+    height: 16,
+  },
 };
 const subtitle = "Hi, let me show you some projects!";
 const description =
@@ -103,10 +112,10 @@ export const content = {
           sampleCaseStudyImageData,
         ],
         mobile: [
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
         ],
       },
     } as CaseStudyData,
@@ -122,10 +131,10 @@ export const content = {
           sampleCaseStudyImageData,
         ],
         mobile: [
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
         ],
       },
     } as CaseStudyData,
@@ -141,10 +150,10 @@ export const content = {
           sampleCaseStudyImageData,
         ],
         mobile: [
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
+          verticalCaseStudyImageData,
         ],
       },
     } as CaseStudyData,

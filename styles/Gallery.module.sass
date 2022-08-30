@@ -1,0 +1,13 @@
+@import './variables.module'
+  
+.gallery
+  margin-top: $margin-standard
+  & > span
+    margin-bottom: $margin-standard !important
+  & > span:nth-child(even)
+    margin-left: $margin-standard !important
+  & > span:nth-child(odd)
+    margin-right: $margin-standard !important
+  & > span:first-child
+    margin-top: $margin-standard !important
+

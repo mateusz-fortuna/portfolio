@@ -15,7 +15,7 @@ type Props = {
   children: ReactNode;
 };
 
-const HorizontalNavigation = ({ children, containerRef, direction }: Props) => {
+const Navigation = ({ children, containerRef, direction }: Props) => {
   const animationFrameRef = useRef(0);
   const [scroll, setScroll] = useState({
     current: 0,
@@ -95,4 +95,4 @@ const HorizontalNavigation = ({ children, containerRef, direction }: Props) => {
   return <>{children}</>;
 };
 
-export default HorizontalNavigation;
+export default Navigation;
