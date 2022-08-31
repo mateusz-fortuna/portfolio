@@ -6,7 +6,7 @@
     margin-bottom: $margin-standard
 
 .caseStudy__desktopView
-  padding: 2 * $margin-standard $margin-standard,
+  padding: 2 * $margin-standard,
   & > div:first-child
     margin-bottom: $margin-standard
   & > div:nth-child(5)
@@ -37,4 +37,8 @@
       cursor: default
       &::after
         display: none
+
+@media screen and (orientation: landscape)
+  .caseStudy__desktopView
+    max-width: 1200px
       
