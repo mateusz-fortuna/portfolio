@@ -4,3 +4,15 @@
   padding: $margin-standard,
   & > div:first-child
     margin-bottom: $margin-standard
+
+.caseStudy__desktopView
+  padding: 2 * $margin-standard $margin-standard,
+  & > div:first-child
+    margin-bottom: $margin-standard
+  & > div:last-child
+    & > *
+      display: inline-block !important
+      width: 100% !important
+      max-width: calc(50% - 2* $margin-standard)
+    & > *:nth-child(3n)
+      margin-left: $margin-standard !important

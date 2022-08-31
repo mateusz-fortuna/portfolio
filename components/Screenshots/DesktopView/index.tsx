@@ -21,9 +21,7 @@ const DesktopView = ({ nth, screenshots }: Props) => (
         Mobile version
       </AnimatedText>
     </div>
-    <div style={{ maxWidth: 500 }}>
-      <Gallery imagesData={screenshots.mobile} />
-    </div>
+    <Gallery imagesData={screenshots.mobile} />
   </>
 );
 

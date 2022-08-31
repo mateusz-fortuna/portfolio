@@ -1,13 +1,12 @@
 import { GetServerSideProps } from "next";
-import { CSSProperties, useRef } from "react";
+import { useRef } from "react";
 import { useIsLandscape } from "../../hooks/useIsLandscape";
 import { content } from "../../public/content";
 import TextSection from "../../components/TextSection";
-import styles from "../../styles/CaseStudy.module.sass";
 import Navigation from "../../components/Navigation";
 import ScreenshotsDesktopLayout from "../../components/Screenshots/DesktopView";
 import ScreenshotsMobileLayout from "../../components/Screenshots/MobileView";
-import variables from "../../styles/variables.module.sass";
+import styles from "../../styles/CaseStudy.module.sass";
 
 type PathName = keyof typeof content.casestudy;
 type Props = {
@@ -24,23 +23,13 @@ const CaseStudy = ({ id }: Props) => {
   const { title, subtitle, description, screenshots } = content.casestudy[id];
   const containerRef = useRef<HTMLDivElement | null>(null);
   const hasDeviceLandscapeOrientation = useIsLandscape();
-
-  const containerStyle = {
-    paddingTop: hasDeviceLandscapeOrientation
-      ? `calc(2 * ${variables.marginStandard})`
-      : 0,
-    paddingBottom: hasDeviceLandscapeOrientation
-      ? `calc(2 * ${variables.marginStandard})`
-      : 0,
-  } as CSSProperties;
+  const containerClassName = hasDeviceLandscapeOrientation
+    ? styles.caseStudy__desktopView
+    : styles.caseStudy__mobileView;
 
   return (
     <Navigation direction="vertical" containerRef={containerRef}>
-      <div
-        className={styles.caseStudy__mobileView}
-        ref={containerRef}
-        style={containerStyle}
-      >
+      <div className={containerClassName} ref={containerRef}>
         <TextSection
           title={title}
           subtitle={subtitle}
