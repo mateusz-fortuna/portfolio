@@ -7,6 +7,7 @@ import Navigation from "../../components/Navigation";
 import ScreenshotsDesktopLayout from "../../components/Screenshots/DesktopView";
 import ScreenshotsMobileLayout from "../../components/Screenshots/MobileView";
 import styles from "../../styles/CaseStudy.module.sass";
+import Technologies from "../../components/Technologies";
 
 type PathName = keyof typeof content.casestudy;
 type Props = {
@@ -20,7 +21,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => ({
 });
 
 const CaseStudy = ({ id }: Props) => {
-  const { title, subtitle, description, screenshots } = content.casestudy[id];
+  const { title, subtitle, description, screenshots, technologies } =
+    content.casestudy[id];
   const containerRef = useRef<HTMLDivElement | null>(null);
   const hasDeviceLandscapeOrientation = useIsLandscape();
   const containerClassName = hasDeviceLandscapeOrientation
@@ -40,6 +42,10 @@ const CaseStudy = ({ id }: Props) => {
         ) : (
           <ScreenshotsMobileLayout screenshots={screenshots} nth={3} />
         )}
+        <Technologies
+          technologies={technologies.names}
+          tools={technologies.tools}
+        />
       </div>
     </Navigation>
   );

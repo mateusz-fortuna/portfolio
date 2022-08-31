@@ -1,3 +1,5 @@
+import { Technology } from "../components/Technologies";
+
 export type Section = {
   title: string;
   subtitle: string;
@@ -34,5 +36,9 @@ export type CaseStudyData = Section & {
   screenshots: {
     desktop: ImageData[];
     mobile: ImageData[];
+  };
+  technologies: {
+    names: Technology[];
+    tools: string[];
   };
 };

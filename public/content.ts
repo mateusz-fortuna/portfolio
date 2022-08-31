@@ -118,6 +118,17 @@ export const content = {
           verticalCaseStudyImageData,
         ],
       },
+      technologies: {
+        names: ["typescript", "react", "redux", "nodejs", "sass"],
+        tools: [
+          "Axios",
+          "React Hook Form",
+          "React Transition Group",
+          "Redux Persist",
+          "Dotenv",
+          "Lodash",
+        ],
+      },
     } as CaseStudyData,
     second: {
       title: "The second",
@@ -137,6 +148,17 @@ export const content = {
           verticalCaseStudyImageData,
         ],
       },
+      technologies: {
+        names: ["typescript", "react", "redux", "nodejs", "sass"],
+        tools: [
+          "Axios",
+          "React Hook Form",
+          "React Transition Group",
+          "Redux Persist",
+          "Dotenv",
+          "Lodash",
+        ],
+      },
     } as CaseStudyData,
     portfolio: {
       title: "Portfolio",
@@ -154,6 +176,17 @@ export const content = {
           verticalCaseStudyImageData,
           verticalCaseStudyImageData,
           verticalCaseStudyImageData,
+        ],
+      },
+      technologies: {
+        names: ["typescript", "react", "redux", "nodejs", "sass"],
+        tools: [
+          "Axios",
+          "React Hook Form",
+          "React Transition Group",
+          "Redux Persist",
+          "Dotenv",
+          "Lodash",
         ],
       },
     } as CaseStudyData,

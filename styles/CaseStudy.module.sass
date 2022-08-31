@@ -9,10 +9,32 @@
   padding: 2 * $margin-standard $margin-standard,
   & > div:first-child
     margin-bottom: $margin-standard
-  & > div:last-child
+  & > div:nth-child(5)
     & > *
       display: inline-block !important
       width: 100% !important
       max-width: calc(50% - 2* $margin-standard)
+      margin-bottom: 2 * $margin-standard !important
     & > *:nth-child(3n)
       margin-left: $margin-standard !important
+
+.caseStudy__technologies
+
+.caseStudy__technologies_logos
+  margin-top: $margin-standard
+  & > *
+    display: inline-block
+    margin-right: $margin-standard
+    margin-bottom: $margin-standard
+  & > *:last-child
+    margin-right: 0
+
+.caseStudy__technologies_tools
+  & > ol
+    list-style: circle
+    padding-left: $margin-standard / 2
+    & > li
+      cursor: default
+      &::after
+        display: none
+      
