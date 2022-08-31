@@ -6,11 +6,12 @@ import TextSection from "../../components/TextSection";
 import Navigation from "../../components/Navigation";
 import ScreenshotsDesktopLayout from "../../components/Screenshots/DesktopView";
 import ScreenshotsMobileLayout from "../../components/Screenshots/MobileView";
-import styles from "../../styles/CaseStudy.module.sass";
 import Technologies from "../../components/Technologies";
+import CaseStudyNavigation from "../../components/NavigationCaseStudy";
+import styles from "../../styles/CaseStudy.module.sass";
 
-type PathName = keyof typeof content.casestudy;
-type Props = {
+export type PathName = keyof typeof content.casestudy;
+export type Props = {
   id: PathName;
 };
 
@@ -46,6 +47,7 @@ const CaseStudy = ({ id }: Props) => {
           technologies={technologies.names}
           tools={technologies.tools}
         />
+        <CaseStudyNavigation caseStudyName={id} />
       </div>
     </Navigation>
   );

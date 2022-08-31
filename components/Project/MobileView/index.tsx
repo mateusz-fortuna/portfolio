@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-import { useViewportDimensions } from "../../../hooks/useViewportDimensions";
 import { Props } from "..";
 import TextSection from "../../TextSection";
 import Button from "../Button";
@@ -16,7 +14,9 @@ const MobileView = ({ image, section, name }: Props) => (
     />
     <div className={styles.projects__mobileView_textSectionWrapper}>
       <TextSection {...section} />
-      <Button name={name} />
+      <Button name={name}>
+        <h2>Case study</h2>
+      </Button>
     </div>
   </div>
 );

@@ -9,7 +9,9 @@ const DesktopView = ({ image, section, name }: Props) => {
     <div className={styles.projects__desktopView}>
       <div className={styles.projects__desktopView_textSectionWrapper}>
         <TextSection {...section} />
-        <Button name={name} />
+        <Button name={name}>
+          <h2>Case study</h2>
+        </Button>
       </div>
       <ProjectThumbnail {...image} />
     </div>

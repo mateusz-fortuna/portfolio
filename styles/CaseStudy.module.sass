@@ -19,6 +19,7 @@
       margin-left: $margin-standard !important
 
 .caseStudy__technologies
+  margin-bottom: 2 * $margin-standard
 
 .caseStudy__technologies_logos
   margin-top: $margin-standard
@@ -38,7 +39,38 @@
       &::after
         display: none
 
+.caseStudy__navigation
+  background-color: $color-secondary
+  width: 100vw
+  height: 2 * $margin-standard
+  display: flex
+  align-items: center
+  position: relative
+  margin-left: -$margin-standard
+  
+.caseStudy__navigation_arrow
+  position: absolute
+  & > button > a > div
+    margin: 0
+    & > h1, h2
+      margin: 0
+      padding: 0
+      text-transform: capitalize
+     
+.caseStudy__navigation_arrowLeft
+  left: 2 * $margin-standard
+
+.caseStudy__navigation_arrowRight
+  right: 2 * $margin-standard
+  
+
+
 @media screen and (orientation: landscape)
   .caseStudy__desktopView
     max-width: 1200px
+
+  .caseStudy__navigation
+    margin-left: -3 * $margin-standard
+    margin-bottom: -$margin-standard
+
       

@@ -1,0 +1,51 @@
+@import 'variables.module'
+
+.arrow
+  margin-top: $margin-standard
+  margin-bottom: $margin-standard
+  color: $color-font
+  font-weight: normal
+  position: relative
+  & > h2
+    margin-bottom: 0
+  & > *:not(h2)
+    transition: all .5s ease
+
+.arrow_core
+  width: calc( 100% + $margin-standard / 2 )
+
+.arrow_core_right
+  right: 0
+
+.arrow_core_left
+  left: 0
+
+.arrow_head
+  position: absolute
+  & > span
+    width: $margin-standard / 6
+    transform-origin: right
+  & > span:first-child
+    transform: rotate(-45deg)
+  & > span:last-child
+    transform: rotate(45deg)
+
+.arrow_head_left
+  right: -$margin-standard / 2 + $margin-standard / 6
+
+.arrow_head_right
+  left: $margin-standard / 6 - $margin-standard / 2
+  transform: rotate(-180deg)
+
+.arrow:hover .arrow_core
+  width: calc( 100% + $margin-standard )
+.arrow:hover .arrow_head_left
+  right: -$margin-standard + $margin-standard / 6
+.arrow:hover .arrow_head_right
+  left: $margin-standard / 6 - $margin-standard
+
+.line
+  position: absolute
+  content: ""
+  height: 1px
+  background-color: $color-font
