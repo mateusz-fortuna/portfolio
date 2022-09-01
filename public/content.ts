@@ -9,11 +9,14 @@ import {
 
 const projectThumbnailSrc = "/images/caseStudies/foodbot/projectThumbnail.jpg";
 const verticalThumbnailSrc = "/images/caseStudies/foodbot/mobile/1.jpg";
-const src = "/images/intro/sample.jpg";
 const alt = "";
 const aspectRatio: Size = {
   width: 16,
   height: 9,
+};
+const mobileAspectRatio: Size = {
+  width: 9,
+  height: 16,
 };
 const sampleCaseStudyImageData: ImageData = {
   src: projectThumbnailSrc,
@@ -41,7 +44,7 @@ export const content = {
         description,
       },
       image: {
-        src,
+        src: "/images/intro/me.jpg",
         alt,
         aspectRatio: {
           width: 1,
@@ -56,7 +59,11 @@ export const content = {
           subtitle,
           description,
         },
-        image: { src: projectThumbnailSrc, alt, aspectRatio },
+        image: {
+          src: "/images/caseStudies/foodbot/desktop_foodbot.png",
+          alt,
+          aspectRatio,
+        },
       },
       second: {
         section: {
@@ -106,16 +113,63 @@ export const content = {
       description,
       screenshots: {
         desktop: [
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
-          sampleCaseStudyImageData,
+          {
+            src: "/images/caseStudies/foodbot/desktop_foodbot.png",
+            alt: "",
+            aspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/desktop/desktop_contact.png",
+            alt: "",
+            aspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/desktop/desktop_features.png",
+            alt: "",
+            aspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/desktop/desktop_features_details.png",
+            alt: "",
+            aspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/desktop/desktop_transition.png",
+            alt: "",
+            aspectRatio,
+          },
         ],
         mobile: [
-          verticalCaseStudyImageData,
-          verticalCaseStudyImageData,
-          verticalCaseStudyImageData,
-          verticalCaseStudyImageData,
+          {
+            src: "/images/caseStudies/foodbot/mobile/mobile_contact.png",
+            alt: "",
+            aspectRatio: mobileAspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/mobile/mobile_features.png",
+            alt: "",
+            aspectRatio: mobileAspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/mobile/mobile_features_details.png",
+            alt: "",
+            aspectRatio: mobileAspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/mobile/mobile_gallery.png",
+            alt: "",
+            aspectRatio: mobileAspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/mobile/mobile_home.png",
+            alt: "",
+            aspectRatio: mobileAspectRatio,
+          },
+          {
+            src: "/images/caseStudies/foodbot/mobile/mobile_menu.png",
+            alt: "",
+            aspectRatio: mobileAspectRatio,
+          },
         ],
       },
       technologies: {
