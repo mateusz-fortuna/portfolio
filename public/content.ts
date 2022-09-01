@@ -67,7 +67,7 @@ export const content = {
       },
       second: {
         section: {
-          title: "The second",
+          title: "System Obsługi Rekolekcji\n(in cooperation) [in progress]",
           subtitle,
           description,
         },
@@ -79,8 +79,8 @@ export const content = {
       },
       portfolio: {
         section: {
-          title: "Portfolio",
-          subtitle,
+          title: "Random Route Generator for jakdojade.pl\n [in progress]",
+          subtitle: "Chrome extension",
           description,
         },
         image: {
@@ -185,7 +185,7 @@ export const content = {
       },
     } as CaseStudyData,
     second: {
-      title: "The second",
+      title: "System Obsługi Rekolekcji",
       subtitle,
       description,
       screenshots: {
@@ -215,7 +215,7 @@ export const content = {
       },
     } as CaseStudyData,
     portfolio: {
-      title: "Portfolio",
+      title: "Random Route Generator for jakdojade.pl",
       subtitle,
       description,
       screenshots: {
