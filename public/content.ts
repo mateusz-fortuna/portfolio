@@ -65,7 +65,7 @@ export const content = {
           aspectRatio,
         },
       },
-      second: {
+      systemObslugiRekolekcji: {
         section: {
           title: "System Obsługi Rekolekcji\n(in cooperation) [in progress]",
           subtitle,
@@ -77,7 +77,7 @@ export const content = {
           aspectRatio,
         },
       },
-      portfolio: {
+      randomRouteGenerator: {
         section: {
           title: "Random Route Generator for jakdojade.pl\n [in progress]",
           subtitle: "Chrome extension",
@@ -184,7 +184,7 @@ export const content = {
         ],
       },
     } as CaseStudyData,
-    second: {
+    systemObslugiRekolekcji: {
       title: "System Obsługi Rekolekcji",
       subtitle,
       description,
@@ -214,7 +214,7 @@ export const content = {
         ],
       },
     } as CaseStudyData,
-    portfolio: {
+    randomRouteGenerator: {
       title: "Random Route Generator for jakdojade.pl",
       subtitle,
       description,

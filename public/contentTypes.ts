@@ -33,6 +33,7 @@ export type Contact = {
   github: Link;
 };
 export type CaseStudyData = Section & {
+  id: string;
   screenshots: {
     desktop: ImageData[];
     mobile: ImageData[];
