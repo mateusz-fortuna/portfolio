@@ -21,9 +21,17 @@ const Intro = () => {
   return (
     <Section className={styles.intro} portraitDeviceId="intro">
       <>
-        {hasDeviceLandscapeOrientation
-          ? [text, introImage]
-          : [introImage, text]}
+        {hasDeviceLandscapeOrientation ? (
+          <>
+            {text}
+            {introImage}
+          </>
+        ) : (
+          <>
+            {introImage}
+            {text}
+          </>
+        )}
       </>
     </Section>
   );
