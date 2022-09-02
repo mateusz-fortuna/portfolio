@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { CloseMenu } from "../../..";
 import AnimatedText from "../../../../AnimatedText";
 import DefaultItem from "../../Item";
@@ -7,7 +8,7 @@ type Props = {
   name: string;
   nth: number;
   closeMenu: CloseMenu;
-  children?: React.ReactElement;
+  children?: ReactElement;
 };
 
 const Item = ({ isMounted, name, nth, children, closeMenu }: Props) => (

@@ -24,6 +24,7 @@ const Navigation = ({ children, containerRef, direction }: Props) => {
     ease: 0.05,
   });
   const router = useRouter();
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     // ----------HANDLE SMOOTH SCROLLING---------- //
@@ -58,29 +59,20 @@ const Navigation = ({ children, containerRef, direction }: Props) => {
     // ----------HANDLE HASH CHANGE---------- //
 
     const introElement = containerRef.current?.children[0];
-
     const posX = {
       intro: 0,
       projects: introElement?.clientWidth || 0,
       contact: containerRef.current?.scrollWidth || 0,
     };
+    const hash = document.location.hash.slice(1) as keyof typeof posX;
 
     const goToHashPosition = () => {
-      const hash = document.location.hash.slice(1);
-      switch (hash) {
-        case "intro":
-          setScroll((scroll) => ({ ...scroll, target: posX.intro }));
-          break;
-        case "projects":
-          setScroll((scroll) => ({ ...scroll, target: posX.projects }));
-          break;
-        case "contact":
-          setScroll((scroll) => ({ ...scroll, target: posX.contact }));
-          break;
-        default:
-          scroll.target = 0;
-      }
+      setScroll((scroll) => ({ ...scroll, target: posX[hash] }));
     };
+
+    if (isFirstRender.current && scroll.target !== posX[hash])
+      goToHashPosition();
+    isFirstRender.current = false;
 
     // ----------EVENT LISTENERS---------- //
 

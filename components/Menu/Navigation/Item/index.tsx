@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { ReactNode } from "react";
 import { CloseMenu } from "../..";
 
 type Props = {
   url: string;
-  children: React.ReactNode;
+  children: ReactNode;
   onClick?: CloseMenu;
 };
 
