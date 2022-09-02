@@ -3,7 +3,8 @@ import { TransitionStatus } from "react-transition-group";
 import variables from "../../styles/variables.module.sass";
 
 type TransitionStyles = {
-  [key in TransitionStatus]?: CSSProperties;
+  // eslint-disable-next-line no-unused-vars
+  [Key in TransitionStatus]?: CSSProperties;
 };
 
 export const transitionStyles: TransitionStyles = {

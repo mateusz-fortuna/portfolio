@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { Transition, TransitionGroup } from "react-transition-group";
 import { transitionStyles } from "./transitionStyles";
 import styles from "../../styles/AnimatedText.module.sass";
@@ -6,7 +7,7 @@ type Props = {
   mount?: boolean;
   children: string;
   nth?: number;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 };
 
 const splitText = (txt: string) => {
@@ -14,12 +15,7 @@ const splitText = (txt: string) => {
   return txt.match(linesSplittingRegex)?.map((line) => line.trimEnd()) || [txt];
 };
 
-const AnimatedText = ({
-  mount = true,
-  children,
-  nth = 0,
-  style,
-}: Props): JSX.Element => {
+const AnimatedText = ({ mount = true, children, nth = 0, style }: Props) => {
   const textLines = splitText(children);
   const animationDelay = 50;
   const componentDelay = nth * animationDelay;
