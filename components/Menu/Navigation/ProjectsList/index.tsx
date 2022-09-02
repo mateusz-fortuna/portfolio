@@ -6,15 +6,11 @@ import Item from "../Item";
 
 const ProjectsList = ({ isMounted, closeMenu }: Props) => (
   <ol className={styles.menu__navigation_projects_list}>
-    {Object.keys(content.home.projects).map((projectName, index) => (
-      <Item
-        key={projectName}
-        url={"/casestudy/" + projectName}
-        onClick={closeMenu}
-      >
+    {Object.entries(content.home.projects).map(([key, value], index) => (
+      <Item key={key} url={"/casestudy/" + key} onClick={closeMenu}>
         <h2>
           <AnimatedText mount={isMounted} nth={index + 1}>
-            {projectName}
+            {value.section.title.split("\n")[0]}
           </AnimatedText>
         </h2>
       </Item>

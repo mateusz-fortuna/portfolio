@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useIsLandscape } from "../../hooks/useIsLandscape";
 import { PathName } from "../../pages/casestudy/[id]";
 import { content } from "../../public/content";
 import styles from "../../styles/CaseStudy.module.sass";
@@ -13,6 +14,7 @@ type Props = {
 };
 
 const Navigation = ({ caseStudyName }: Props) => {
+  const hasDeviceLandscapeOrientation = useIsLandscape();
   const [state, setState] = useState<State>({
     previous: undefined,
     next: undefined,
@@ -21,6 +23,10 @@ const Navigation = ({ caseStudyName }: Props) => {
   const defaultArrowClassName = styles.caseStudy__navigation_arrow;
   const leftArrowClassName = `${defaultArrowClassName} ${styles.caseStudy__navigation_arrowLeft}`;
   const rightArrowClassName = `${defaultArrowClassName} ${styles.caseStudy__navigation_arrowRight}`;
+  const navigationClassName =
+    !hasDeviceLandscapeOrientation && state.previous && state.next
+      ? `${styles.caseStudy__navigation} ${styles.caseStudy__navigation_high}`
+      : styles.caseStudy__navigation;
 
   useEffect(() => {
     const caseStudyNames = Object.keys(content.casestudy) as PathName[];
@@ -32,15 +38,19 @@ const Navigation = ({ caseStudyName }: Props) => {
   }, [caseStudyName]);
 
   return (
-    <div className={styles.caseStudy__navigation}>
+    <div className={navigationClassName}>
       {state.previous && (
         <div className={leftArrowClassName}>
-          <Button direction="left" name={state.previous} />
+          <Button direction="left" name={state.previous}>
+            {content.casestudy[state.previous].title}
+          </Button>
         </div>
       )}
       {state.next && (
         <div className={rightArrowClassName}>
-          <Button direction="right" name={state.next} />
+          <Button direction="right" name={state.next}>
+            {content.casestudy[state.next].title}
+          </Button>
         </div>
       )}
     </div>

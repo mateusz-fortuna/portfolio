@@ -79,7 +79,7 @@ export const content = {
       },
       randomRouteGenerator: {
         section: {
-          title: "Random Route Generator for jakdojade.pl\n [in progress]",
+          title: "Random Route Generator\nfor jakdojade.pl [in progress]",
           subtitle: "Chrome extension",
           description,
         },
@@ -215,7 +215,7 @@ export const content = {
       },
     } as CaseStudyData,
     randomRouteGenerator: {
-      title: "Random Route Generator for jakdojade.pl",
+      title: "Random Route Generator",
       subtitle,
       description,
       screenshots: {
